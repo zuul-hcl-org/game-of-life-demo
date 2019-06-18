@@ -1,0 +1,31 @@
+- hosts: all
+  tasks:
+    - debug:
+        msg: "running for gameof life demo"
+        
+    - name: "Deleted the workspace dir before build"
+      shell: |
+            rm -rf ~/work
+      register: clean_output
+      
+    - name: Clone git repo
+      git:
+        repo: https://github.com/zuul-hcl-org/gameoflife.git
+        dest: ~/work/
+      when: clean_output is succeeded
+      
+    - name: Build sample project
+      shell: |
+            /opt/maven/apache-maven-3.5.4/bin/mvn -f /home/gameoflife/pom.xml clean install
+      register: output
+      
+    - name: Push artifacts to jfrog repository
+      uri:
+        url: http://13.126.225.252:9081/artifactory/generic-local/hello.jar
+        validate_certs: no
+        method: PUT
+        headers:
+          X-JFrog-Art-Api: AKCp5dK4mF6tBdrReiknVmQ8X6zBp6SstMM34jzu6NkfMecn2MQEbh2jp2ma8kKSw3JVybbWP
+        src: ~/work/build/hello.jar
+        status_code: 201
+        remote_src: yes
