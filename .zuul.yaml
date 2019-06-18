@@ -30,7 +30,7 @@
       nodes:
         - name: node
           label: centos76
-	  
+
 - project:
     checklabel_emea:
       jobs:
