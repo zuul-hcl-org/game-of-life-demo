@@ -21,11 +21,11 @@
       
     - name: Push artifacts to jfrog repository
       uri:
-        url: http://13.126.225.252:9081/artifactory/generic-local/hello.jar
+        url: http://172.31.27.120:9081/artifactory/generic-local/gameoflife.war
         validate_certs: no
         method: PUT
         headers:
           X-JFrog-Art-Api: AKCp5dK4mF6tBdrReiknVmQ8X6zBp6SstMM34jzu6NkfMecn2MQEbh2jp2ma8kKSw3JVybbWP
-        src: ~/work/build/hello.jar
+        src: ~/work/gameoflife-web/target/gameoflife.war
         status_code: 201
         remote_src: yes
