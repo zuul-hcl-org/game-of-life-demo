@@ -15,11 +15,11 @@
     parent: base
     
 - project:
-    region1:
+    regionEMEA:
       jobs:
        - demomavenbuildjob:
            nodeset: ubuntu-bionic
-    region2:
+    regionNAFTA:
       jobs:
        - demomavenbuildjob:
            nodeset: centos76
