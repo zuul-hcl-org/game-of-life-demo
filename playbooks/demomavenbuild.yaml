@@ -29,13 +29,11 @@
         src: ~/work/gameoflife-web/target/gameoflife.war
         status_code: 201
         remote_src: yes
-#    - name: testing of shiva    
-#      debug:
-#      msg: "this is shiva {{ zuul.change_url }}"        
     - debug:
-      msg: "this is shiva {{ zuul.change_url }}"
+       msg: "this is shiva {{ zuul.change_url }}"
     - shell: |
-             echo {{ zuul.change_url }} | cut -d '/' -f 7
+         echo {{ zuul.change_url }} | cut -d '/' -f 7
       register: pullid
     - debug:
-      msg: "{{ shiva kumar pullid }}"    
+       msg: "{{ shiva kumar pullid }}"
+  
