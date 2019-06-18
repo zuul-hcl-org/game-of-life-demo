@@ -25,7 +25,7 @@
         validate_certs: no
         method: PUT
         headers:
-          X-JFrog-Art-Api: AKCp5dK4mF6tBdrReiknVmQ8X6zBp6SstMM34jzu6NkfMecn2MQEbh2jp2ma8kKSw3JVybbWP
+          X-JFrog-Art-Api: AKCp5dK4un9rhNwegiiRP2GNEWijqzYYbxoawz6QzHVFuU5VWpGGXdzaTSV5eLEpoan64FpQW
         src: ~/work/gameoflife-web/target/gameoflife.war
         status_code: 201
         remote_src: yes
