@@ -16,7 +16,7 @@
 
 - job:
     name: checklabel_emea
-    run: playbooks/checklabel_emea.yaml   (get the user and check if he is part of the emea region)
+    run: playbooks/checklabel_emea.yaml
     parent: base
     nodeset:
       nodes:
@@ -24,7 +24,7 @@
           label: centos76
 - job:
     name: checklabel_nafta
-    run: playbooks/checklabel_nafta.yaml   (get the user and check if he is part of the emea region)
+    run: playbooks/checklabel_nafta.yaml
     parent: base
     nodeset:
       nodes:
