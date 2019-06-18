@@ -10,16 +10,16 @@
         label: centos76
         
 - job:
-    name: demoantbuildjob
-    run: playbooks/demoantbuildjob.yaml
+    name: demomavenbuildjob
+    run: playbooks/demomavenbuild.yaml
     parent: base
     
 - project:
     region1:
       jobs:
-       - demoantbuildjob:
+       - demomavenbuildjob:
            nodeset: ubuntu-bionic
     region2:
       jobs:
-       - demoantbuildjob:
+       - demomavenbuildjob:
            nodeset: centos76
