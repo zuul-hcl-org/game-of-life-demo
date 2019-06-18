@@ -11,12 +11,12 @@
     - name: Clone git repo
       git:
         repo: https://github.com/zuul-hcl-org/gameoflife.git
-        dest: ~/home/work/
+        dest: ~/work/
       when: clean_output is succeeded
       
     - name: Build sample project
       shell: |
-            /opt/maven/apache-maven-3.5.4/bin/mvn -f ~/home/work/pom.xml clean install
+            /opt/maven/apache-maven-3.5.4/bin/mvn -f ~/home/pom.xml clean install
       register: output
       
     - name: Push artifacts to jfrog repository
