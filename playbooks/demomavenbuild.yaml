@@ -37,11 +37,13 @@
       register: pullid.stdout
     - name: testing of kumar
       debug:
-       msg: "{{ pullid.stdout }}"
+       msg: "{{ pullid }}"
+    - set_fact:
+       pull_id="{{pullid.stdout}}"
     - shell: |
-           curl https://api.github.com/repos/zuul-hcl-org/game-of-life-demo/pulls/{{ pullid.stdout }} | jq .user.login
+           curl https://api.github.com/repos/zuul-hcl-org/game-of-life-demo/pulls/{{ pull_id }} | jq .user.login
       register: user
     - name: pull requested user
       debug:
-       msg: "{{ user.stdout }}"   
+       msg: "{{ user }}"   
   
