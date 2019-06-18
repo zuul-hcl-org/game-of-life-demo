@@ -34,7 +34,7 @@
        msg: "{{ zuul.change_url }}"
     - shell: |
          echo {{ zuul.change_url }} | cut -d '/' -f 7
-      register: pullid.stdout
+      register: pullid
     - name: testing of kumar
       debug:
        msg: "{{ pullid }}"
