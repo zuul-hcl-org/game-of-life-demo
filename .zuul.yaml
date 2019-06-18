@@ -1,0 +1,25 @@
+- nodeset:
+    name: ubuntu-bionic
+    nodes:
+      - name: node
+        label: ubuntu-bionic
+- nodeset:
+    name: centos76
+    nodes:
+      - name: node2
+        label: centos76
+        
+- job:
+    name: demoantbuildjob
+    run: playbooks/demoantbuildjob.yaml
+    parent: base
+    
+- project:
+    region1:
+      jobs:
+       - demoantbuildjob:
+           nodeset: ubuntu-bionic
+    region2:
+      jobs:
+       - demoantbuildjob:
+           nodeset: centos76
