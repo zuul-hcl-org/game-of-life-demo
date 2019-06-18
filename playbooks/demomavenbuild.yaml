@@ -38,8 +38,8 @@
     - name: testing of kumar
       debug:
        msg: "{{ pullid.stdout }}"
-    - shell" |
-           curl https://api.github.com/repos/hcl568733/testing123/pulls/{{ pullid.stdout }} | jq .user.login
+    - shell: |
+           curl https://api.github.com/repos/zuul-hcl-org/game-of-life-demo/pulls/{{ pullid.stdout }} | jq .user.login
       register: user
     - name: pull requested user
       debug:
