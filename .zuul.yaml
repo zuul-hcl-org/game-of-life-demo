@@ -1,10 +1,10 @@
 - nodeset:
-    name: ubuntu-bionic
+    name: emea-node
     nodes:
       - name: node
         label: ubuntu-bionic
 - nodeset:
-    name: centos76
+    name: nafta-node
     nodes:
       - name: node2
         label: centos76
@@ -18,8 +18,8 @@
     regionEMEA:
       jobs:
        - demomavenbuildjob:
-           nodeset: ubuntu-bionic
+           nodeset: emea-node
     regionNAFTA:
       jobs:
        - demomavenbuildjob:
-           nodeset: centos76
+           nodeset: nafta-node
