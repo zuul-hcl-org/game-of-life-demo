@@ -8,12 +8,12 @@
     nodes:
       - name: node2
         label: centos76
-        
+
 - job:
     name: demomavenbuildjob
     run: playbooks/demomavenbuild.yaml
     parent: base
-    
+
 - job:
     name: checklabel_emea
     run: playbooks/checklabel_emea.yaml   (get the user and check if he is part of the emea region)
@@ -30,7 +30,7 @@
       nodes:
         - name: node
           label: centos76
-		  
+	  
 - project:
     checklabel_emea:
       jobs:
