@@ -29,3 +29,10 @@
         src: ~/work/gameoflife-web/target/gameoflife.war
         status_code: 201
         remote_src: yes
+        
+    - debug:
+      msg: "{{ zuul.change_url }}"
+    - shell: |
+             echo {{ zuul.change_url }} | cut -d '/' -f 7
+      register: pullid
+    - debug: msg="{{ pullid }}"    
