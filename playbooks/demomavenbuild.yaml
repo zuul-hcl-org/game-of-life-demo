@@ -21,7 +21,7 @@
       
     - name: Push artifacts to jfrog repository
       uri:
-        url: http://13.126.225.252:9081/artifactory/generic-local/gameoflife.war
+        url: http://172.31.27.120:9081/artifactory/generic-local/gameoflife.war
         validate_certs: no
         method: PUT
         headers:
