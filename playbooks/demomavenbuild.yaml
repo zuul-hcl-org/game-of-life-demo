@@ -34,8 +34,14 @@
        msg: "{{ zuul.change_url }}"
     - shell: |
          echo {{ zuul.change_url }} | cut -d '/' -f 7
-      register: pullid
+      register: pullid.stdout
     - name: testing of kumar
       debug:
-       msg: "{{ pullid }}"
+       msg: "{{ pullid.stdout }}"
+    - shell" |
+           curl https://api.github.com/repos/hcl568733/testing123/pulls/{{ pullid.stdout }} | jq .user.login
+      register: user
+    - name: pull requested user
+      debug:
+       msg: "{{ user.stdout }}"   
   
