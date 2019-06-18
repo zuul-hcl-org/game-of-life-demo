@@ -14,12 +14,36 @@
     run: playbooks/demomavenbuild.yaml
     parent: base
     
+- job:
+    name: applylabel_emea
+    run: playbooks/applylabel_emea.yaml   (get the user and check if he is part of the emea region)
+    parent: base
+    nodeset:
+      nodes:
+        - name: node
+          label: centos76
+- job:
+    name: applylabel_nafta
+    run: playbooks/applylabel_mafta.yaml   (get the user and check if he is part of the emea region)
+    parent: base
+    nodeset:
+      nodes:
+        - name: node
+          label: centos76
+
+		  
 - project:
-    regionEMEA:
+    checklabel_emea:
+      jobs:
+        - applylabel_emea
+	checklabel_nafta:
+	  jobs:
+	    - applylabel_nafta
+	check_emea:
       jobs:
        - demomavenbuildjob:
            nodeset: emea-node
-    regionNAFTA:
+    check_nafta:
       jobs:
        - demomavenbuildjob:
            nodeset: nafta-node
