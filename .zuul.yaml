@@ -3,9 +3,7 @@
     nodes:
       - name: node
         label: ubuntu-bionic
-      - name: node3
-        label: ubuntu-node3
-- nodeset:
+      - nodeset:
     name: nafta-node
     nodes:
       - name: node2
